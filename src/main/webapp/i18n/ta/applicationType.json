@@ -1,0 +1,9 @@
+{
+    "esmsApp": {
+        "ApplicationType" : {
+            "null": "",
+            "FREE": "FREE",
+            "LOAN": "LOAN"
+        }
+    }
+}

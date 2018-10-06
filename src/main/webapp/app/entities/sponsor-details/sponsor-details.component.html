@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="esmsApp.sponsorDetails.home.title">Sponsor Details</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sponsor-details" [routerLink]="['/sponsor-details/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="esmsApp.sponsorDetails.home.createLabel">
+            Create new Sponsor Details
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="sponsorDetails">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sponsorName"><span jhiTranslate="esmsApp.sponsorDetails.sponsorName">Sponsor Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gender"><span jhiTranslate="esmsApp.sponsorDetails.gender">Gender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="profilePicture"><span jhiTranslate="esmsApp.sponsorDetails.profilePicture">Profile Picture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="doorno"><span jhiTranslate="esmsApp.sponsorDetails.doorno">Doorno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mobileNo"><span jhiTranslate="esmsApp.sponsorDetails.mobileNo">Mobile No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="landlineNo"><span jhiTranslate="esmsApp.sponsorDetails.landlineNo">Landline No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="esmsApp.sponsorDetails.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="street.id"><span jhiTranslate="esmsApp.sponsorDetails.street">Street</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="place.id"><span jhiTranslate="esmsApp.sponsorDetails.place">Place</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="country.id"><span jhiTranslate="esmsApp.sponsorDetails.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sponsorDetails of sponsorDetails ;trackBy: trackId">
+                <td><a [routerLink]="['/sponsor-details', sponsorDetails.id, 'view' ]">{{sponsorDetails.id}}</a></td>
+                <td>{{sponsorDetails.sponsorName}}</td>
+                <td jhiTranslate="{{'esmsApp.Gender.' + sponsorDetails.gender}}">{{sponsorDetails.gender}}</td>
+                <td>
+                    <a *ngIf="sponsorDetails.profilePicture" (click)="openFile(sponsorDetails.profilePictureContentType, sponsorDetails.profilePicture)">
+                        <img [src]="'data:' + sponsorDetails.profilePictureContentType + ';base64,' + sponsorDetails.profilePicture" style="max-height: 30px;" alt="sponsorDetails image"/>
+                    </a>
+                    <span *ngIf="sponsorDetails.profilePicture">{{sponsorDetails.profilePictureContentType}}, {{byteSize(sponsorDetails.profilePicture)}}</span>
+                </td>
+                <td>{{sponsorDetails.doorno}}</td>
+                <td>{{sponsorDetails.mobileNo}}</td>
+                <td>{{sponsorDetails.landlineNo}}</td>
+                <td>{{sponsorDetails.email}}</td>
+                <td>
+                    <div *ngIf="sponsorDetails.street">
+                        <a [routerLink]="['../street', sponsorDetails.street?.id, 'view' ]" >{{sponsorDetails.street?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="sponsorDetails.place">
+                        <a [routerLink]="['../place', sponsorDetails.place?.id, 'view' ]" >{{sponsorDetails.place?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="sponsorDetails.country">
+                        <a [routerLink]="['../country', sponsorDetails.country?.id, 'view' ]" >{{sponsorDetails.country?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/sponsor-details', sponsorDetails.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sponsor-details', sponsorDetails.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sponsor-details/'+ sponsorDetails.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="sponsorDetails && sponsorDetails.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

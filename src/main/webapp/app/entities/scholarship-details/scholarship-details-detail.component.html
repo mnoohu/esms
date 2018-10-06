@@ -1,0 +1,143 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="scholarshipDetails">
+            <h2><span jhiTranslate="esmsApp.scholarshipDetails.detail.title">Scholarship Details</span> {{scholarshipDetails.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.applicationType">Application Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'esmsApp.ApplicationType.' + scholarshipDetails.applicationType}}">{{scholarshipDetails.applicationType}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.applicationDate">Application Date</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.applicationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.studentName">Student Name</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.studentName}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'esmsApp.Gender.' + scholarshipDetails.gender}}">{{scholarshipDetails.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.profilePicture">Profile Picture</span></dt>
+                <dd>
+                    <div *ngIf="scholarshipDetails.profilePicture">
+                        <a (click)="openFile(scholarshipDetails.profilePictureContentType, scholarshipDetails.profilePicture)">
+                            <img [src]="'data:' + scholarshipDetails.profilePictureContentType + ';base64,' + scholarshipDetails.profilePicture" style="max-width: 100%;" alt="scholarshipDetails image"/>
+                        </a>
+                        {{scholarshipDetails.profilePictureContentType}}, {{byteSize(scholarshipDetails.profilePicture)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.dob">Dob</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.dob}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.doorno">Doorno</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.doorno}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.mobileNo">Mobile No</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.mobileNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.landlineNo">Landline No</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.landlineNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.email">Email</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.courseType">Course Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'esmsApp.CourseType.' + scholarshipDetails.courseType}}">{{scholarshipDetails.courseType}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.courseName">Course Name</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.courseName}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.collegeName">College Name</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.collegeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.collegeAddress">College Address</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.collegeAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.approvedAmount">Approved Amount</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.approvedAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.zakaathAmount">Zakaath Amount</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.zakaathAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.yearsSponsored">Years Sponsored</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.yearsSponsored}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.approvedYear">Approved Year</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.approvedYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.scannedCopyOfApplication">Scanned Copy Of Application</span></dt>
+                <dd>
+                    <div *ngIf="scholarshipDetails.scannedCopyOfApplication">
+                        <a (click)="openFile(scholarshipDetails.scannedCopyOfApplicationContentType, scholarshipDetails.scannedCopyOfApplication)">
+                            <img [src]="'data:' + scholarshipDetails.scannedCopyOfApplicationContentType + ';base64,' + scholarshipDetails.scannedCopyOfApplication" style="max-width: 100%;" alt="scholarshipDetails image"/>
+                        </a>
+                        {{scholarshipDetails.scannedCopyOfApplicationContentType}}, {{byteSize(scholarshipDetails.scannedCopyOfApplication)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.paymentOnHold">Payment On Hold</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.paymentOnHold}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.courseCompletedYear">Course Completed Year</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.courseCompletedYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.repaymentCompletedYear">Repayment Completed Year</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.repaymentCompletedYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.hasRepayments">Has Repayments</span></dt>
+                <dd>
+                    <span>{{scholarshipDetails.hasRepayments}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.street">Street</span></dt>
+                <dd>
+                    <div *ngIf="scholarshipDetails.street">
+                        <a [routerLink]="['/street', scholarshipDetails.street?.id, 'view']">{{scholarshipDetails.street?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.place">Place</span></dt>
+                <dd>
+                    <div *ngIf="scholarshipDetails.place">
+                        <a [routerLink]="['/place', scholarshipDetails.place?.id, 'view']">{{scholarshipDetails.place?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.scholarshipDetails.country">Country</span></dt>
+                <dd>
+                    <div *ngIf="scholarshipDetails.country">
+                        <a [routerLink]="['/country', scholarshipDetails.country?.id, 'view']">{{scholarshipDetails.country?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/scholarship-details', scholarshipDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

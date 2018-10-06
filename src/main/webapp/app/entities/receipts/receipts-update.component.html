@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-receipts-heading" jhiTranslate="esmsApp.receipts.home.createOrEditLabel">Create or edit a Receipts</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!receipts.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="receipts.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.receipts.receiptDate" for="field_receiptDate">Receipt Date</label>
+                    <div class="d-flex">
+                        <input id="field_receiptDate" type="datetime-local" class="form-control" name="receiptDate" [(ngModel)]="receiptDate"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.receiptDate?.dirty && editForm.controls.receiptDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.receiptDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.receiptDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.receipts.receiptType" for="field_receiptType">Receipt Type</label>
+                    <select class="form-control" name="receiptType" [(ngModel)]="receipts.receiptType" id="field_receiptType"  required>
+                        <option value="DONATION">{{'esmsApp.ReceiptType.DONATION' | translate}}</option>
+                        <option value="SUBSCRIPTION">{{'esmsApp.ReceiptType.SUBSCRIPTION' | translate}}</option>
+                        <option value="SCHOLARSHIP">{{'esmsApp.ReceiptType.SCHOLARSHIP' | translate}}</option>
+                        <option value="REPAYMENT">{{'esmsApp.ReceiptType.REPAYMENT' | translate}}</option>
+                        <option value="ZAKAATH">{{'esmsApp.ReceiptType.ZAKAATH' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.receiptType?.dirty && editForm.controls.receiptType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.receiptType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.receipts.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="receipts.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.receipts.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="receipts.amount" required/>
+                    <div [hidden]="!(editForm.controls.amount?.dirty && editForm.controls.amount?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.amount?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.amount?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.receipts.forYear" for="field_forYear">For Year</label>
+                    <div class="d-flex">
+                        <input id="field_forYear" type="datetime-local" class="form-control" name="forYear" [(ngModel)]="forYear"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.receipts.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                        [(ngModel)]="receipts.remarks" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

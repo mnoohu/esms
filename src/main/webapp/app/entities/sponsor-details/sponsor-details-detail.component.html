@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sponsorDetails">
+            <h2><span jhiTranslate="esmsApp.sponsorDetails.detail.title">Sponsor Details</span> {{sponsorDetails.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.sponsorName">Sponsor Name</span></dt>
+                <dd>
+                    <span>{{sponsorDetails.sponsorName}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'esmsApp.Gender.' + sponsorDetails.gender}}">{{sponsorDetails.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.profilePicture">Profile Picture</span></dt>
+                <dd>
+                    <div *ngIf="sponsorDetails.profilePicture">
+                        <a (click)="openFile(sponsorDetails.profilePictureContentType, sponsorDetails.profilePicture)">
+                            <img [src]="'data:' + sponsorDetails.profilePictureContentType + ';base64,' + sponsorDetails.profilePicture" style="max-width: 100%;" alt="sponsorDetails image"/>
+                        </a>
+                        {{sponsorDetails.profilePictureContentType}}, {{byteSize(sponsorDetails.profilePicture)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.doorno">Doorno</span></dt>
+                <dd>
+                    <span>{{sponsorDetails.doorno}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.mobileNo">Mobile No</span></dt>
+                <dd>
+                    <span>{{sponsorDetails.mobileNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.landlineNo">Landline No</span></dt>
+                <dd>
+                    <span>{{sponsorDetails.landlineNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.email">Email</span></dt>
+                <dd>
+                    <span>{{sponsorDetails.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.street">Street</span></dt>
+                <dd>
+                    <div *ngIf="sponsorDetails.street">
+                        <a [routerLink]="['/street', sponsorDetails.street?.id, 'view']">{{sponsorDetails.street?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.place">Place</span></dt>
+                <dd>
+                    <div *ngIf="sponsorDetails.place">
+                        <a [routerLink]="['/place', sponsorDetails.place?.id, 'view']">{{sponsorDetails.place?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.sponsorDetails.country">Country</span></dt>
+                <dd>
+                    <div *ngIf="sponsorDetails.country">
+                        <a [routerLink]="['/country', sponsorDetails.country?.id, 'view']">{{sponsorDetails.country?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sponsor-details', sponsorDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

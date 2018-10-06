@@ -1,0 +1,26 @@
+
+{
+    "esmsApp": {
+        "sponsorCommitments" : {
+            "home": {
+                "title": "Sponsor Commitments",
+                "createLabel": "Create a new Sponsor Commitments",
+                "createOrEditLabel": "Create or edit a Sponsor Commitments"
+            },
+            "created": "A new Sponsor Commitments is created with identifier {{ param }}",
+            "updated": "A Sponsor Commitments is updated with identifier {{ param }}",
+            "deleted": "A Sponsor Commitments is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sponsor Commitments {{ id }}?"
+            },
+            "detail": {
+                "title": "Sponsor Commitments"
+            },
+            "forYear": "For Year",
+            "amount": "Amount",
+            "paid": "Paid",
+            "reciptNo": "Recipt No",
+            "sponsorDetails": "Sponsor Details"
+        }
+    }
+}

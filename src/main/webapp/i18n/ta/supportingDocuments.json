@@ -1,0 +1,23 @@
+
+{
+    "esmsApp": {
+        "supportingDocuments" : {
+            "home": {
+                "title": "Supporting Documents",
+                "createLabel": "Supporting Documents-ஐ உருவாக்கு",
+                "createOrEditLabel": "Supporting Documents -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Supporting Documents புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Supporting Documents மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Supporting Documents நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Supporting Documents {{ id }}?"
+            },
+            "detail": {
+                "title": "Supporting Documents"
+            },
+            "document": "Document",
+            "scholarshipDetails": "Scholarship Details"
+        }
+    }
+}

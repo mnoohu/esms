@@ -1,0 +1,9 @@
+{
+    "esmsApp": {
+        "CourseType" : {
+            "null": "",
+            "PROFESSIONAL_COURSE": "PROFESSIONAL_COURSE",
+            "OTHER_COURSE": "OTHER_COURSE"
+        }
+    }
+}

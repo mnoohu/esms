@@ -1,0 +1,32 @@
+
+{
+    "esmsApp": {
+        "sponsorDetails" : {
+            "home": {
+                "title": "Sponsor Details",
+                "createLabel": "Sponsor Details-ஐ உருவாக்கு",
+                "createOrEditLabel": "Sponsor Details -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Sponsor Details புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Sponsor Details மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Sponsor Details நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Sponsor Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Sponsor Details"
+            },
+            "sponsorName": "Sponsor Name",
+            "gender": "Gender",
+            "profilePicture": "Profile Picture",
+            "doorno": "Doorno",
+            "mobileNo": "Mobile No",
+            "landlineNo": "Landline No",
+            "email": "Email",
+            "street": "Street",
+            "place": "Place",
+            "country": "Country",
+            "commitments": "Commitments"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+
+{
+    "esmsApp": {
+        "street" : {
+            "home": {
+                "title": "Streets",
+                "createLabel": "Street-ஐ உருவாக்கு",
+                "createOrEditLabel": "Street -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Street புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Street மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Street நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Street {{ id }}?"
+            },
+            "detail": {
+                "title": "Street"
+            },
+            "name": "Name"
+        }
+    }
+}

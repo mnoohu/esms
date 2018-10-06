@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-petty-cash-heading" jhiTranslate="esmsApp.pettyCash.home.createOrEditLabel">Create or edit a Petty Cash</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!pettyCash.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="pettyCash.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.pettyCash.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="date"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.date?.dirty && editForm.controls.date?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.date?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.date?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.pettyCash.details" for="field_details">Details</label>
+                    <input type="text" class="form-control" name="details" id="field_details"
+                        [(ngModel)]="pettyCash.details" required/>
+                    <div [hidden]="!(editForm.controls.details?.dirty && editForm.controls.details?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.details?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.pettyCash.cashIn" for="field_cashIn">Cash In</label>
+                    <input type="number" class="form-control" name="cashIn" id="field_cashIn"
+                        [(ngModel)]="pettyCash.cashIn" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.pettyCash.cashOut" for="field_cashOut">Cash Out</label>
+                    <input type="number" class="form-control" name="cashOut" id="field_cashOut"
+                        [(ngModel)]="pettyCash.cashOut" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

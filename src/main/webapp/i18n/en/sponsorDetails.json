@@ -1,0 +1,32 @@
+
+{
+    "esmsApp": {
+        "sponsorDetails" : {
+            "home": {
+                "title": "Sponsor Details",
+                "createLabel": "Create a new Sponsor Details",
+                "createOrEditLabel": "Create or edit a Sponsor Details"
+            },
+            "created": "A new Sponsor Details is created with identifier {{ param }}",
+            "updated": "A Sponsor Details is updated with identifier {{ param }}",
+            "deleted": "A Sponsor Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sponsor Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Sponsor Details"
+            },
+            "sponsorName": "Sponsor Name",
+            "gender": "Gender",
+            "profilePicture": "Profile Picture",
+            "doorno": "Doorno",
+            "mobileNo": "Mobile No",
+            "landlineNo": "Landline No",
+            "email": "Email",
+            "street": "Street",
+            "place": "Place",
+            "country": "Country",
+            "commitments": "Commitments"
+        }
+    }
+}

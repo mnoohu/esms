@@ -1,0 +1,134 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="esmsApp.scholarshipDetails.home.title">Scholarship Details</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-scholarship-details" [routerLink]="['/scholarship-details/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="esmsApp.scholarshipDetails.home.createLabel">
+            Create new Scholarship Details
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="scholarshipDetails">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="applicationType"><span jhiTranslate="esmsApp.scholarshipDetails.applicationType">Application Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="applicationDate"><span jhiTranslate="esmsApp.scholarshipDetails.applicationDate">Application Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="studentName"><span jhiTranslate="esmsApp.scholarshipDetails.studentName">Student Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gender"><span jhiTranslate="esmsApp.scholarshipDetails.gender">Gender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="profilePicture"><span jhiTranslate="esmsApp.scholarshipDetails.profilePicture">Profile Picture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dob"><span jhiTranslate="esmsApp.scholarshipDetails.dob">Dob</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="doorno"><span jhiTranslate="esmsApp.scholarshipDetails.doorno">Doorno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mobileNo"><span jhiTranslate="esmsApp.scholarshipDetails.mobileNo">Mobile No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="landlineNo"><span jhiTranslate="esmsApp.scholarshipDetails.landlineNo">Landline No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="esmsApp.scholarshipDetails.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="courseType"><span jhiTranslate="esmsApp.scholarshipDetails.courseType">Course Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="courseName"><span jhiTranslate="esmsApp.scholarshipDetails.courseName">Course Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="collegeName"><span jhiTranslate="esmsApp.scholarshipDetails.collegeName">College Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="collegeAddress"><span jhiTranslate="esmsApp.scholarshipDetails.collegeAddress">College Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="approvedAmount"><span jhiTranslate="esmsApp.scholarshipDetails.approvedAmount">Approved Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="zakaathAmount"><span jhiTranslate="esmsApp.scholarshipDetails.zakaathAmount">Zakaath Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="yearsSponsored"><span jhiTranslate="esmsApp.scholarshipDetails.yearsSponsored">Years Sponsored</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="approvedYear"><span jhiTranslate="esmsApp.scholarshipDetails.approvedYear">Approved Year</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="scannedCopyOfApplication"><span jhiTranslate="esmsApp.scholarshipDetails.scannedCopyOfApplication">Scanned Copy Of Application</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentOnHold"><span jhiTranslate="esmsApp.scholarshipDetails.paymentOnHold">Payment On Hold</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="courseCompletedYear"><span jhiTranslate="esmsApp.scholarshipDetails.courseCompletedYear">Course Completed Year</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="repaymentCompletedYear"><span jhiTranslate="esmsApp.scholarshipDetails.repaymentCompletedYear">Repayment Completed Year</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hasRepayments"><span jhiTranslate="esmsApp.scholarshipDetails.hasRepayments">Has Repayments</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="street.id"><span jhiTranslate="esmsApp.scholarshipDetails.street">Street</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="place.id"><span jhiTranslate="esmsApp.scholarshipDetails.place">Place</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="country.id"><span jhiTranslate="esmsApp.scholarshipDetails.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let scholarshipDetails of scholarshipDetails ;trackBy: trackId">
+                <td><a [routerLink]="['/scholarship-details', scholarshipDetails.id, 'view' ]">{{scholarshipDetails.id}}</a></td>
+                <td jhiTranslate="{{'esmsApp.ApplicationType.' + scholarshipDetails.applicationType}}">{{scholarshipDetails.applicationType}}</td>
+                <td>{{scholarshipDetails.applicationDate | date:'medium'}}</td>
+                <td>{{scholarshipDetails.studentName}}</td>
+                <td jhiTranslate="{{'esmsApp.Gender.' + scholarshipDetails.gender}}">{{scholarshipDetails.gender}}</td>
+                <td>
+                    <a *ngIf="scholarshipDetails.profilePicture" (click)="openFile(scholarshipDetails.profilePictureContentType, scholarshipDetails.profilePicture)">
+                        <img [src]="'data:' + scholarshipDetails.profilePictureContentType + ';base64,' + scholarshipDetails.profilePicture" style="max-height: 30px;" alt="scholarshipDetails image"/>
+                    </a>
+                    <span *ngIf="scholarshipDetails.profilePicture">{{scholarshipDetails.profilePictureContentType}}, {{byteSize(scholarshipDetails.profilePicture)}}</span>
+                </td>
+                <td>{{scholarshipDetails.dob | date:'medium'}}</td>
+                <td>{{scholarshipDetails.doorno}}</td>
+                <td>{{scholarshipDetails.mobileNo}}</td>
+                <td>{{scholarshipDetails.landlineNo}}</td>
+                <td>{{scholarshipDetails.email}}</td>
+                <td jhiTranslate="{{'esmsApp.CourseType.' + scholarshipDetails.courseType}}">{{scholarshipDetails.courseType}}</td>
+                <td>{{scholarshipDetails.courseName}}</td>
+                <td>{{scholarshipDetails.collegeName}}</td>
+                <td>{{scholarshipDetails.collegeAddress}}</td>
+                <td>{{scholarshipDetails.approvedAmount}}</td>
+                <td>{{scholarshipDetails.zakaathAmount}}</td>
+                <td>{{scholarshipDetails.yearsSponsored}}</td>
+                <td>{{scholarshipDetails.approvedYear | date:'medium'}}</td>
+                <td>
+                    <a *ngIf="scholarshipDetails.scannedCopyOfApplication" (click)="openFile(scholarshipDetails.scannedCopyOfApplicationContentType, scholarshipDetails.scannedCopyOfApplication)">
+                        <img [src]="'data:' + scholarshipDetails.scannedCopyOfApplicationContentType + ';base64,' + scholarshipDetails.scannedCopyOfApplication" style="max-height: 30px;" alt="scholarshipDetails image"/>
+                    </a>
+                    <span *ngIf="scholarshipDetails.scannedCopyOfApplication">{{scholarshipDetails.scannedCopyOfApplicationContentType}}, {{byteSize(scholarshipDetails.scannedCopyOfApplication)}}</span>
+                </td>
+                <td>{{scholarshipDetails.paymentOnHold}}</td>
+                <td>{{scholarshipDetails.courseCompletedYear | date:'medium'}}</td>
+                <td>{{scholarshipDetails.repaymentCompletedYear | date:'medium'}}</td>
+                <td>{{scholarshipDetails.hasRepayments}}</td>
+                <td>
+                    <div *ngIf="scholarshipDetails.street">
+                        <a [routerLink]="['../street', scholarshipDetails.street?.id, 'view' ]" >{{scholarshipDetails.street?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="scholarshipDetails.place">
+                        <a [routerLink]="['../place', scholarshipDetails.place?.id, 'view' ]" >{{scholarshipDetails.place?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="scholarshipDetails.country">
+                        <a [routerLink]="['../country', scholarshipDetails.country?.id, 'view' ]" >{{scholarshipDetails.country?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/scholarship-details', scholarshipDetails.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/scholarship-details', scholarshipDetails.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'scholarship-details/'+ scholarshipDetails.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="scholarshipDetails && scholarshipDetails.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

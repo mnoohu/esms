@@ -1,0 +1,27 @@
+
+{
+    "esmsApp": {
+        "receipts" : {
+            "home": {
+                "title": "Receipts",
+                "createLabel": "Receipts-ஐ உருவாக்கு",
+                "createOrEditLabel": "Receipts -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Receipts புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Receipts மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Receipts நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Receipts {{ id }}?"
+            },
+            "detail": {
+                "title": "Receipts"
+            },
+            "receiptDate": "Receipt Date",
+            "receiptType": "Receipt Type",
+            "name": "Name",
+            "amount": "Amount",
+            "forYear": "For Year",
+            "remarks": "Remarks"
+        }
+    }
+}

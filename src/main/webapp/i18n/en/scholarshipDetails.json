@@ -1,0 +1,49 @@
+
+{
+    "esmsApp": {
+        "scholarshipDetails" : {
+            "home": {
+                "title": "Scholarship Details",
+                "createLabel": "Create a new Scholarship Details",
+                "createOrEditLabel": "Create or edit a Scholarship Details"
+            },
+            "created": "A new Scholarship Details is created with identifier {{ param }}",
+            "updated": "A Scholarship Details is updated with identifier {{ param }}",
+            "deleted": "A Scholarship Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Scholarship Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Scholarship Details"
+            },
+            "applicationType": "Application Type",
+            "applicationDate": "Application Date",
+            "studentName": "Student Name",
+            "gender": "Gender",
+            "profilePicture": "Profile Picture",
+            "dob": "Dob",
+            "doorno": "Doorno",
+            "mobileNo": "Mobile No",
+            "landlineNo": "Landline No",
+            "email": "Email",
+            "courseType": "Course Type",
+            "courseName": "Course Name",
+            "collegeName": "College Name",
+            "collegeAddress": "College Address",
+            "approvedAmount": "Approved Amount",
+            "zakaathAmount": "Zakaath Amount",
+            "yearsSponsored": "Years Sponsored",
+            "approvedYear": "Approved Year",
+            "scannedCopyOfApplication": "Scanned Copy Of Application",
+            "paymentOnHold": "Payment On Hold",
+            "courseCompletedYear": "Course Completed Year",
+            "repaymentCompletedYear": "Repayment Completed Year",
+            "hasRepayments": "Has Repayments",
+            "street": "Street",
+            "place": "Place",
+            "country": "Country",
+            "remarks": "Remarks",
+            "supportingDocuments": "Supporting Documents"
+        }
+    }
+}

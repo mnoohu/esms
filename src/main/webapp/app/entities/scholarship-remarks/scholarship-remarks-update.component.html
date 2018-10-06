@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-scholarship-remarks-heading" jhiTranslate="esmsApp.scholarshipRemarks.home.createOrEditLabel">Create or edit a Scholarship Remarks</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!scholarshipRemarks.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="scholarshipRemarks.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.scholarshipRemarks.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                        [(ngModel)]="scholarshipRemarks.remarks" required/>
+                    <div [hidden]="!(editForm.controls.remarks?.dirty && editForm.controls.remarks?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.remarks?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.scholarshipRemarks.scholarshipDetails" for="field_scholarshipDetails">Scholarship Details</label>
+                    <select class="form-control" id="field_scholarshipDetails" name="scholarshipDetails" [(ngModel)]="scholarshipRemarks.scholarshipDetails" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="scholarshipDetailsOption.id === scholarshipRemarks.scholarshipDetails?.id ? scholarshipRemarks.scholarshipDetails : scholarshipDetailsOption" *ngFor="let scholarshipDetailsOption of scholarshipdetails; trackBy: trackScholarshipDetailsById">{{scholarshipDetailsOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

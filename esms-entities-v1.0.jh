@@ -1,0 +1,130 @@
+entity Street {
+	name String required
+}
+
+entity Country {
+	name String required
+}
+
+entity Place {
+	name String required
+}
+
+entity ZakaathAmount {
+	amount BigDecimal required min(0)
+}
+
+
+entity SupportingDocuments {
+	document ImageBlob required
+}
+
+entity ScholarshipRemarks {
+	remarks	String required
+}
+
+entity SponsorCommitments {
+	forYear Instant required,
+    amount BigDecimal required,
+    paid String required,
+    reciptNo Integer
+}
+
+enum MembershipType {
+	MANAGEMENT_COMMITTEE,
+    EXECUTIVE_COMMITTEE,
+    GENERAL_BODY,
+    LIFETIME,
+    ADVISORY_COMMITTEE
+}
+
+enum ApplicationType {
+	FREE, LOAN
+}
+
+enum ReceiptType {
+	DONATION, SUBSCRIPTION, SCHOLARSHIP, REPAYMENT, ZAKAATH 
+}
+
+
+enum CourseType {
+	PROFESSIONAL_COURSE,
+    OTHER_COURSE
+}
+
+enum Gender {
+	MALE, FEMALE
+}
+
+entity ScholarshipDetails {
+	applicationType ApplicationType required,
+	applicationDate Instant,
+    studentName String required,
+	gender Gender required,
+    profilePicture ImageBlob required,
+    dob Instant required,
+   	doorno String required,
+    mobileNo String required,
+    landlineNo String,
+    email String,
+	courseType CourseType required,
+    courseName String required,
+    collegeName String required,
+    collegeAddress String required,
+    approvedAmount BigDecimal required min(0),
+    zakaathAmount BigDecimal min(0),
+    yearsSponsored Integer min(0),
+    approvedYear Instant,
+    scannedCopyOfApplication ImageBlob,
+    paymentOnHold String,
+    courseCompletedYear Instant,
+    repaymentCompletedYear Instant,
+    hasRepayments String
+}
+
+entity SponsorDetails {
+    sponsorName String required,
+	gender Gender required,
+    profilePicture ImageBlob required,
+   	doorno String required,
+    mobileNo String required,
+    landlineNo String,
+    email String 
+}
+entity Receipts {
+	receiptDate Instant required,
+	receiptType ReceiptType required,
+	name String required,
+	amount	BigDecimal required,
+	forYear Instant,
+	remarks String
+}
+
+entity PettyCash {
+	date Instant required,
+	details String required,
+	cashIn BigDecimal,
+	cashOut BigDecimal
+}
+
+relationship OneToOne {
+	ScholarshipDetails{street} to Street,
+	ScholarshipDetails{place} to Place,
+	ScholarshipDetails{country} to Country,
+	SponsorDetails{street} to Street,
+	SponsorDetails{place} to Place,
+	SponsorDetails{country} to Country
+	
+}
+
+relationship OneToMany {
+	ScholarshipDetails{remarks} to ScholarshipRemarks,
+	ScholarshipDetails{supportingDocuments} to SupportingDocuments,
+	SponsorDetails{commitments} to SponsorCommitments
+}
+
+// Set pagination options
+paginate ScholarshipDetails, SponsorDetails, Receipts, PettyCash with pagination
+
+// Set service options to all except few
+service * with serviceClass

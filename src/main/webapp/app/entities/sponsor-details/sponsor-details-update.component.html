@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-sponsor-details-heading" jhiTranslate="esmsApp.sponsorDetails.home.createOrEditLabel">Create or edit a Sponsor Details</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!sponsorDetails.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="sponsorDetails.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.sponsorName" for="field_sponsorName">Sponsor Name</label>
+                    <input type="text" class="form-control" name="sponsorName" id="field_sponsorName"
+                        [(ngModel)]="sponsorDetails.sponsorName" required/>
+                    <div [hidden]="!(editForm.controls.sponsorName?.dirty && editForm.controls.sponsorName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.sponsorName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.gender" for="field_gender">Gender</label>
+                    <select class="form-control" name="gender" [(ngModel)]="sponsorDetails.gender" id="field_gender"  required>
+                        <option value="MALE">{{'esmsApp.Gender.MALE' | translate}}</option>
+                        <option value="FEMALE">{{'esmsApp.Gender.FEMALE' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.gender?.dirty && editForm.controls.gender?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.gender?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.profilePicture" for="field_profilePicture">Profile Picture</label>
+                    <div>
+                        <img [src]="'data:' + sponsorDetails.profilePictureContentType + ';base64,' + sponsorDetails.profilePicture" style="max-height: 100px;" *ngIf="sponsorDetails.profilePicture" alt="sponsorDetails image"/>
+                        <div *ngIf="sponsorDetails.profilePicture" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{sponsorDetails.profilePictureContentType}}, {{byteSize(sponsorDetails.profilePicture)}}</span>
+                            <button type="button" (click)="clearInputImage('profilePicture', 'profilePictureContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_profilePicture" (change)="setFileData($event, sponsorDetails, 'profilePicture', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="profilePicture" id="field_profilePicture"
+                        [(ngModel)]="sponsorDetails.profilePicture" required/>
+                    <input type="hidden" class="form-control" name="profilePictureContentType" id="field_profilePictureContentType"
+                        [(ngModel)]="sponsorDetails.profilePictureContentType" />
+                    <div [hidden]="!(editForm.controls.profilePicture?.dirty && editForm.controls.profilePicture?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.profilePicture?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.doorno" for="field_doorno">Doorno</label>
+                    <input type="text" class="form-control" name="doorno" id="field_doorno"
+                        [(ngModel)]="sponsorDetails.doorno" required/>
+                    <div [hidden]="!(editForm.controls.doorno?.dirty && editForm.controls.doorno?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.doorno?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.mobileNo" for="field_mobileNo">Mobile No</label>
+                    <input type="text" class="form-control" name="mobileNo" id="field_mobileNo"
+                        [(ngModel)]="sponsorDetails.mobileNo" required/>
+                    <div [hidden]="!(editForm.controls.mobileNo?.dirty && editForm.controls.mobileNo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.mobileNo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.landlineNo" for="field_landlineNo">Landline No</label>
+                    <input type="text" class="form-control" name="landlineNo" id="field_landlineNo"
+                        [(ngModel)]="sponsorDetails.landlineNo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="sponsorDetails.email" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.street" for="field_street">Street</label>
+                    <select class="form-control" id="field_street" name="street" [(ngModel)]="sponsorDetails.street">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="streetOption.id === sponsorDetails.street?.id ? sponsorDetails.street : streetOption" *ngFor="let streetOption of streets; trackBy: trackStreetById">{{streetOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.place" for="field_place">Place</label>
+                    <select class="form-control" id="field_place" name="place" [(ngModel)]="sponsorDetails.place">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="placeOption.id === sponsorDetails.place?.id ? sponsorDetails.place : placeOption" *ngFor="let placeOption of places; trackBy: trackPlaceById">{{placeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorDetails.country" for="field_country">Country</label>
+                    <select class="form-control" id="field_country" name="country" [(ngModel)]="sponsorDetails.country">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="countryOption.id === sponsorDetails.country?.id ? sponsorDetails.country : countryOption" *ngFor="let countryOption of countries; trackBy: trackCountryById">{{countryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

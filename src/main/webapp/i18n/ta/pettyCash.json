@@ -1,0 +1,25 @@
+
+{
+    "esmsApp": {
+        "pettyCash" : {
+            "home": {
+                "title": "Petty Cashes",
+                "createLabel": "Petty Cash-ஐ உருவாக்கு",
+                "createOrEditLabel": "Petty Cash -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Petty Cash புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Petty Cash மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Petty Cash நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Petty Cash {{ id }}?"
+            },
+            "detail": {
+                "title": "Petty Cash"
+            },
+            "date": "Date",
+            "details": "Details",
+            "cashIn": "Cash In",
+            "cashOut": "Cash Out"
+        }
+    }
+}

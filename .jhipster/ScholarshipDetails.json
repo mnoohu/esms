@@ -1,0 +1,195 @@
+{
+    "name": "ScholarshipDetails",
+    "fields": [
+        {
+            "fieldName": "applicationType",
+            "fieldType": "ApplicationType",
+            "fieldValues": "FREE,LOAN",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "applicationDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "studentName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "profilePicture",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dob",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "doorno",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mobileNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "landlineNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "courseType",
+            "fieldType": "CourseType",
+            "fieldValues": "PROFESSIONAL_COURSE,OTHER_COURSE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "courseName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "collegeName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "collegeAddress",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "approvedAmount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "zakaathAmount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "yearsSponsored",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "approvedYear",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "scannedCopyOfApplication",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "paymentOnHold",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "courseCompletedYear",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "repaymentCompletedYear",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "hasRepayments",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "street",
+            "otherEntityName": "street",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "scholarshipDetails"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "place",
+            "otherEntityName": "place",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "scholarshipDetails"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "country",
+            "otherEntityName": "country",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "scholarshipDetails"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "remarks",
+            "otherEntityName": "scholarshipRemarks",
+            "otherEntityRelationshipName": "scholarshipDetails"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "supportingDocuments",
+            "otherEntityName": "supportingDocuments",
+            "otherEntityRelationshipName": "scholarshipDetails"
+        }
+    ],
+    "changelogDate": "20180930151503",
+    "entityTableName": "scholarship_details",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

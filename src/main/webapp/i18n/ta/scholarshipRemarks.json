@@ -1,0 +1,23 @@
+
+{
+    "esmsApp": {
+        "scholarshipRemarks" : {
+            "home": {
+                "title": "Scholarship Remarks",
+                "createLabel": "Scholarship Remarks-ஐ உருவாக்கு",
+                "createOrEditLabel": "Scholarship Remarks -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Scholarship Remarks புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Scholarship Remarks மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Scholarship Remarks நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Scholarship Remarks {{ id }}?"
+            },
+            "detail": {
+                "title": "Scholarship Remarks"
+            },
+            "remarks": "Remarks",
+            "scholarshipDetails": "Scholarship Details"
+        }
+    }
+}

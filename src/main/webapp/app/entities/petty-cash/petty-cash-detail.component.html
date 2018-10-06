@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pettyCash">
+            <h2><span jhiTranslate="esmsApp.pettyCash.detail.title">Petty Cash</span> {{pettyCash.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="esmsApp.pettyCash.date">Date</span></dt>
+                <dd>
+                    <span>{{pettyCash.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.pettyCash.details">Details</span></dt>
+                <dd>
+                    <span>{{pettyCash.details}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.pettyCash.cashIn">Cash In</span></dt>
+                <dd>
+                    <span>{{pettyCash.cashIn}}</span>
+                </dd>
+                <dt><span jhiTranslate="esmsApp.pettyCash.cashOut">Cash Out</span></dt>
+                <dd>
+                    <span>{{pettyCash.cashOut}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/petty-cash', pettyCash.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

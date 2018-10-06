@@ -1,0 +1,23 @@
+
+{
+    "esmsApp": {
+        "scholarshipRemarks" : {
+            "home": {
+                "title": "Scholarship Remarks",
+                "createLabel": "Create a new Scholarship Remarks",
+                "createOrEditLabel": "Create or edit a Scholarship Remarks"
+            },
+            "created": "A new Scholarship Remarks is created with identifier {{ param }}",
+            "updated": "A Scholarship Remarks is updated with identifier {{ param }}",
+            "deleted": "A Scholarship Remarks is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Scholarship Remarks {{ id }}?"
+            },
+            "detail": {
+                "title": "Scholarship Remarks"
+            },
+            "remarks": "Remarks",
+            "scholarshipDetails": "Scholarship Details"
+        }
+    }
+}

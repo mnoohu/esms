@@ -1,0 +1,23 @@
+
+{
+    "esmsApp": {
+        "supportingDocuments" : {
+            "home": {
+                "title": "Supporting Documents",
+                "createLabel": "Create a new Supporting Documents",
+                "createOrEditLabel": "Create or edit a Supporting Documents"
+            },
+            "created": "A new Supporting Documents is created with identifier {{ param }}",
+            "updated": "A Supporting Documents is updated with identifier {{ param }}",
+            "deleted": "A Supporting Documents is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Supporting Documents {{ id }}?"
+            },
+            "detail": {
+                "title": "Supporting Documents"
+            },
+            "document": "Document",
+            "scholarshipDetails": "Scholarship Details"
+        }
+    }
+}

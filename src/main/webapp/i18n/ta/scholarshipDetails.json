@@ -1,0 +1,49 @@
+
+{
+    "esmsApp": {
+        "scholarshipDetails" : {
+            "home": {
+                "title": "Scholarship Details",
+                "createLabel": "Scholarship Details-ஐ உருவாக்கு",
+                "createOrEditLabel": "Scholarship Details -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Scholarship Details புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Scholarship Details மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Scholarship Details நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Scholarship Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Scholarship Details"
+            },
+            "applicationType": "Application Type",
+            "applicationDate": "Application Date",
+            "studentName": "Student Name",
+            "gender": "Gender",
+            "profilePicture": "Profile Picture",
+            "dob": "Dob",
+            "doorno": "Doorno",
+            "mobileNo": "Mobile No",
+            "landlineNo": "Landline No",
+            "email": "Email",
+            "courseType": "Course Type",
+            "courseName": "Course Name",
+            "collegeName": "College Name",
+            "collegeAddress": "College Address",
+            "approvedAmount": "Approved Amount",
+            "zakaathAmount": "Zakaath Amount",
+            "yearsSponsored": "Years Sponsored",
+            "approvedYear": "Approved Year",
+            "scannedCopyOfApplication": "Scanned Copy Of Application",
+            "paymentOnHold": "Payment On Hold",
+            "courseCompletedYear": "Course Completed Year",
+            "repaymentCompletedYear": "Repayment Completed Year",
+            "hasRepayments": "Has Repayments",
+            "street": "Street",
+            "place": "Place",
+            "country": "Country",
+            "remarks": "Remarks",
+            "supportingDocuments": "Supporting Documents"
+        }
+    }
+}

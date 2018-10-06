@@ -1,0 +1,12 @@
+{
+    "esmsApp": {
+        "ReceiptType" : {
+            "null": "",
+            "DONATION": "DONATION",
+            "SUBSCRIPTION": "SUBSCRIPTION",
+            "SCHOLARSHIP": "SCHOLARSHIP",
+            "REPAYMENT": "REPAYMENT",
+            "ZAKAATH": "ZAKAATH"
+        }
+    }
+}

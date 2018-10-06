@@ -1,0 +1,60 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="esmsApp.scholarshipRemarks.home.title">Scholarship Remarks</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-scholarship-remarks" [routerLink]="['/scholarship-remarks/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="esmsApp.scholarshipRemarks.home.createLabel">
+            Create new Scholarship Remarks
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="scholarshipRemarks">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="esmsApp.scholarshipRemarks.remarks">Remarks</span></th>
+            <th><span jhiTranslate="esmsApp.scholarshipRemarks.scholarshipDetails">Scholarship Details</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let scholarshipRemarks of scholarshipRemarks ;trackBy: trackId">
+                <td><a [routerLink]="['/scholarship-remarks', scholarshipRemarks.id, 'view' ]">{{scholarshipRemarks.id}}</a></td>
+                <td>{{scholarshipRemarks.remarks}}</td>
+                <td>
+                    <div *ngIf="scholarshipRemarks.scholarshipDetails">
+                        <a [routerLink]="['../scholarship-details', scholarshipRemarks.scholarshipDetails?.id, 'view' ]" >{{scholarshipRemarks.scholarshipDetails?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/scholarship-remarks', scholarshipRemarks.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/scholarship-remarks', scholarshipRemarks.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'scholarship-remarks/'+ scholarshipRemarks.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

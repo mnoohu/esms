@@ -1,0 +1,27 @@
+
+{
+    "esmsApp": {
+        "receipts" : {
+            "home": {
+                "title": "Receipts",
+                "createLabel": "Create a new Receipts",
+                "createOrEditLabel": "Create or edit a Receipts"
+            },
+            "created": "A new Receipts is created with identifier {{ param }}",
+            "updated": "A Receipts is updated with identifier {{ param }}",
+            "deleted": "A Receipts is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Receipts {{ id }}?"
+            },
+            "detail": {
+                "title": "Receipts"
+            },
+            "receiptDate": "Receipt Date",
+            "receiptType": "Receipt Type",
+            "name": "Name",
+            "amount": "Amount",
+            "forYear": "For Year",
+            "remarks": "Remarks"
+        }
+    }
+}

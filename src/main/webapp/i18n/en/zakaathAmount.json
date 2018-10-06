@@ -1,0 +1,22 @@
+
+{
+    "esmsApp": {
+        "zakaathAmount" : {
+            "home": {
+                "title": "Zakaath Amounts",
+                "createLabel": "Create a new Zakaath Amount",
+                "createOrEditLabel": "Create or edit a Zakaath Amount"
+            },
+            "created": "A new Zakaath Amount is created with identifier {{ param }}",
+            "updated": "A Zakaath Amount is updated with identifier {{ param }}",
+            "deleted": "A Zakaath Amount is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Zakaath Amount {{ id }}?"
+            },
+            "detail": {
+                "title": "Zakaath Amount"
+            },
+            "amount": "Amount"
+        }
+    }
+}

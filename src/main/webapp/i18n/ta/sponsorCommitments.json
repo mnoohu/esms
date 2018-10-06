@@ -1,0 +1,26 @@
+
+{
+    "esmsApp": {
+        "sponsorCommitments" : {
+            "home": {
+                "title": "Sponsor Commitments",
+                "createLabel": "Sponsor Commitments-ஐ உருவாக்கு",
+                "createOrEditLabel": "Sponsor Commitments -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Sponsor Commitments புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Sponsor Commitments மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Sponsor Commitments நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Sponsor Commitments {{ id }}?"
+            },
+            "detail": {
+                "title": "Sponsor Commitments"
+            },
+            "forYear": "For Year",
+            "amount": "Amount",
+            "paid": "Paid",
+            "reciptNo": "Recipt No",
+            "sponsorDetails": "Sponsor Details"
+        }
+    }
+}

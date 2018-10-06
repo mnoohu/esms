@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.iqra.esms",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.3.4",
+    "applicationType": "monolith",
+    "baseName": "esms",
+    "packageName": "org.iqra.esms",
+    "packageFolder": "org/iqra/esms",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Y2IwMjExZWY4ZmMyZmM0MTgyMDM1MmJkODk5MTdmY2M2ZDFlZjBhODk3M2YzOWU2MjQzOGVhMTU3NWRmNjBmM2E5NjQxMmE1NzExODVhNDY3YzY3NWNjNDcxZDI2OGQ2ZTQ1ZjJmZDhlNzA2ZmVmYzZlN2NiOTg5NzYxMDg3OTE=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "ta"
+    ]
+  }
+}

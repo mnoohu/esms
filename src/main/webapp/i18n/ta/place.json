@@ -1,0 +1,22 @@
+
+{
+    "esmsApp": {
+        "place" : {
+            "home": {
+                "title": "Places",
+                "createLabel": "Place-ஐ உருவாக்கு",
+                "createOrEditLabel": "Place -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Place புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Place மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Place நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Place {{ id }}?"
+            },
+            "detail": {
+                "title": "Place"
+            },
+            "name": "Name"
+        }
+    }
+}

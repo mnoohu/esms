@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-sponsor-commitments-heading" jhiTranslate="esmsApp.sponsorCommitments.home.createOrEditLabel">Create or edit a Sponsor Commitments</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!sponsorCommitments.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="sponsorCommitments.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorCommitments.forYear" for="field_forYear">For Year</label>
+                    <div class="d-flex">
+                        <input id="field_forYear" type="datetime-local" class="form-control" name="forYear" [(ngModel)]="forYear"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.forYear?.dirty && editForm.controls.forYear?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.forYear?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.forYear?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorCommitments.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="sponsorCommitments.amount" required/>
+                    <div [hidden]="!(editForm.controls.amount?.dirty && editForm.controls.amount?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.amount?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.amount?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorCommitments.paid" for="field_paid">Paid</label>
+                    <input type="text" class="form-control" name="paid" id="field_paid"
+                        [(ngModel)]="sponsorCommitments.paid" required/>
+                    <div [hidden]="!(editForm.controls.paid?.dirty && editForm.controls.paid?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.paid?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorCommitments.reciptNo" for="field_reciptNo">Recipt No</label>
+                    <input type="number" class="form-control" name="reciptNo" id="field_reciptNo"
+                        [(ngModel)]="sponsorCommitments.reciptNo" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="esmsApp.sponsorCommitments.sponsorDetails" for="field_sponsorDetails">Sponsor Details</label>
+                    <select class="form-control" id="field_sponsorDetails" name="sponsorDetails" [(ngModel)]="sponsorCommitments.sponsorDetails" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sponsorDetailsOption.id === sponsorCommitments.sponsorDetails?.id ? sponsorCommitments.sponsorDetails : sponsorDetailsOption" *ngFor="let sponsorDetailsOption of sponsordetails; trackBy: trackSponsorDetailsById">{{sponsorDetailsOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
